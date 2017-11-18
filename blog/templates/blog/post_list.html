@@ -2,26 +2,21 @@
 
     <head>
         <title>Annes blog</title>
-        <br\>
     </head>
 
     <body>
+      
+      <div>
+          <h1><a href="/">Django Girls Blog</a></h1>
+      </div>
 
-        <div>
-            <h1><a href="">Annes Blog</a></h1>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">Beitrag 1</a></h2>
-            <p>Hier könnte ihr Text stehen.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">Beitrag 2</a></h2>
-            <p>Oder hier. <em>Oder hier.<em></p>
-        </div>
+      {% for post in posts %}
+          <div>
+              <p>published: {{ post.published_date }}</p>
+              <h1><a href="">{{ post.title }}</a></h1>
+              <p>{{ post.text|linebreaksbr }}</p>
+          </div>
+      {% endfor %}
 
     </body>
 
